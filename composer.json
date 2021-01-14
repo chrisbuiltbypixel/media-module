@@ -1,0 +1,24 @@
+{
+    "name": "builtbypixel/media-module",
+    "description": "",
+    "type": "laravel-module",
+    "authors": [
+        {
+            "name": "Chris Mills",
+            "email": "chris@builtbypixel.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Media\\": ""
+        }
+    }
+}
