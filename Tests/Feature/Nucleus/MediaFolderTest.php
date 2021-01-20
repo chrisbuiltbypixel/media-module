@@ -32,7 +32,7 @@ class MediaFolderTest extends TestCase
         $folder = MediaFolder::factory()->create();
 
         $data = [
-            'title' => 'New Title',
+            'name' => 'New Name',
         ];
 
         $response = $this->put("api/media-folders/$folder->id", $data);
@@ -41,8 +41,7 @@ class MediaFolderTest extends TestCase
 
         $folder->refresh();
 
-        $this->assertEquals($data['title'], $folder->title);
-        $this->assertEquals($data['content'], $folder->content);
+        $this->assertEquals($data['name'], $folder->name);
 
     }
 

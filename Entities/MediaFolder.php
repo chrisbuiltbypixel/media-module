@@ -9,10 +9,10 @@ class MediaFolder extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
-    
+    protected $fillable = ['name'];
+
     protected static function newFactory()
     {
-        return \Modules\Media\Database\factories\MediaFolderFactory::new();
+        return \Modules\Media\Database\factories\MediaFolderFactory::new ();
     }
 }

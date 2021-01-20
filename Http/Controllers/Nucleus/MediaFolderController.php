@@ -4,6 +4,7 @@ namespace Modules\Media\Http\Controllers\Nucleus;
 
 use Modules\Media\Http\Requests\UpdateMediaFolderRequest;
 use Modules\Media\Http\Requests\StoreMediaFolderRequest;
+use Modules\Media\Entities\MediaFolder;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Support\Renderable;
@@ -18,7 +19,9 @@ class MediaFolderController extends Controller
      */
     public function store(StoreMediaFolderRequest $request)
     {
-        return ModelFolder::create($request->validated());
+        MediaFolder::create($request->validated());
+
+        return response()->success('Folder added');
     }
 
     /**
@@ -27,9 +30,11 @@ class MediaFolderController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(UpdateMediaFolderRequest $request, $id)
+    public function update(UpdateMediaFolderRequest $request, MediaFolder $folder)
     {
-        //
+        $folder->update($request->validated());
+
+        return response()->success('Folder updated');
     }
 
     /**
@@ -37,8 +42,11 @@ class MediaFolderController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $ids = $request->id;
+        MediaFolder::whereIn('id', $ids)->delete();
+
+        return response()->success('Deleted folder');
     }
 }

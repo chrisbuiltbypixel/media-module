@@ -36,4 +36,9 @@ class Media extends Model
     // {
     //     return $this->morphedByMany(User::class, 'mediable');
     // }
+
+    public function folder()
+    {
+        return $this->belongsTo(MediaFolder::class);
+    }
 }
