@@ -11,7 +11,7 @@
 |
  */
 
-Route::middleware(['auth:api', function () {
+Route::group(['middleware' => 'auth:admin_api'], function () {
     Route::get('media' . 'Nucleus\MediaController@index'); // will return a list of folders/files
     Route::post('media', 'Nucleus\MediaController@store'); // add new media
     Route::delete('media', 'Nucleus\MediaController@destroy'); // delete media
@@ -19,4 +19,4 @@ Route::middleware(['auth:api', function () {
     Route::post('media-folders' . 'Nucleus\MediaFolderController@store'); // add a new folder
     Route::put('media-folders' . 'Nucleus\MediaFolderController@update'); // edit folder name
     Route::delete('media-folders' . 'Nucleus\MediaFolderController@delete'); // remove folder
-}]);
+});

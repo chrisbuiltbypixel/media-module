@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Media\Http\Controllers\Api;
+namespace Modules\Media\Http\Controllers\Nucleus;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\Support\Renderable;
 
 class MediaController extends Controller
 {

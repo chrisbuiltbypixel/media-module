@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaFoldersTable extends Migration
+class CreateMediablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateMediaFoldersTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_folders', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('folder_id')->nullable();
-            $table->string('name');
-            $table->timestamps();
+        Schema::create('mediables', function (Blueprint $table) {
+            $table->id('media_id');
+            $table->bigInteger('mediable_id');
+            $table->string('mediable_type');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateMediaFoldersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media_folders');
+        Schema::dropIfExists('mediables');
     }
 }
