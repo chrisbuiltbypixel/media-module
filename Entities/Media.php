@@ -13,6 +13,14 @@ class Media extends Model
 
     protected $fillable = [];
 
+    protected $casts = [
+        'responsive_images' => 'object',
+    ];
+
+    protected $appends = [
+        'url',
+    ];
+
     protected static function newFactory()
     {
         return \Modules\Media\Database\factories\MediaFactory::new ();
@@ -40,5 +48,10 @@ class Media extends Model
     public function folder()
     {
         return $this->belongsTo(MediaFolder::class);
+    }
+
+    public function getUrlAttribute()
+    {
+        return 'http://bakend-api.test/' . $this->file_name . '.' . $this->mime_type;
     }
 }

@@ -15,7 +15,7 @@ class CreateMediaFoldersTable extends Migration
     {
         Schema::create('media_folders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('folder_id')->nullable();
+            $table->bigInteger('parent_folder_id')->nullable();
             $table->string('name');
             $table->timestamps();
         });

@@ -14,10 +14,6 @@ class MediaResource extends JsonResource
      */
     public function toArray($request)
     {
-        dd($this);
-        return [
-            'folders' => $this->folders,
-            'media' => $this->media,
-        ];
+
     }
 }
