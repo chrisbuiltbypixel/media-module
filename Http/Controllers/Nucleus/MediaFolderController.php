@@ -17,9 +17,12 @@ class MediaFolderController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(StoreMediaFolderRequest $request)
+    public function store(StoreMediaFolderRequest $request, $folderId = null)
     {
-        MediaFolder::create($request->validated());
+        MediaFolder::create([
+            'folder_id' => $folderId,
+            'name' => $request->name,
+        ]);
 
         return response()->success('Folder added');
     }

@@ -26,13 +26,17 @@ class MediaController extends Controller
         return ['data' => $data];
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $folderId = null)
     {
         //
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $ids = $request->id;
+
+        Media::whereIn('id', $ids)->delete();
+
+        return response()->success('Deleted media');
     }
 }

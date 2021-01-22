@@ -24,7 +24,7 @@ class MediaFolderTest extends TestCase
 
         $response = $this->post('api/media-folders', $folder);
 
-        $response->assertStatus(201);
+        $response->assertStatus(200);
     }
 
     public function test_we_can_edit_a_folder()
@@ -37,7 +37,7 @@ class MediaFolderTest extends TestCase
 
         $response = $this->put("api/media-folders/$folder->id", $data);
 
-        $response->assertStatus(201);
+        $response->assertStatus(200);
 
         $folder->refresh();
 
@@ -57,7 +57,7 @@ class MediaFolderTest extends TestCase
 
         $response = $this->delete('api/media-folders', $data);
 
-        $response->assertStatus(201);
+        $response->assertStatus(200);
 
         $this->assertDatabaseCount('media_folders', 0);
 
